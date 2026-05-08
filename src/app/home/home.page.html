@@ -12,9 +12,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-searchbar 
+    placeholder="Movie Name" 
+    (ionInput)="onSearch($event)">
+  </ion-searchbar>
+
   <ion-list>
     <ion-list-header>
-      <ion-label>Today's Trending Movies</ion-label>
+      <ion-label>Movies</ion-label>
     </ion-list-header>
 
     <ion-item *ngFor="let movie of trendingMovies">

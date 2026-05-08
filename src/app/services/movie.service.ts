@@ -13,4 +13,9 @@ export class MovieService {
   getTrendingMovies(): Observable<any> {
     return this.http.get(`${environment.baseUrl}/trending/movie/day?api_key=${environment.apiKey}`);
   }
+
+  // This is the search function required for the Home Page
+  searchMovies(query: string): Observable<any> {
+    return this.http.get(`${environment.baseUrl}/search/movie?query=${query}&api_key=${environment.apiKey}`);
+  }
 }
