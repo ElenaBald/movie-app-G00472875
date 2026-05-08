@@ -22,7 +22,7 @@
       <ion-label>Movies</ion-label>
     </ion-list-header>
 
-    <ion-item *ngFor="let movie of trendingMovies">
+    <ion-item *ngFor="let movie of trendingMovies" [routerLink]="['/movie-details', movie.id]">
       <ion-thumbnail slot="start">
         <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" />
       </ion-thumbnail>
