@@ -29,4 +29,13 @@ export class MovieService {
   getMovieCredits(movieId: number): Observable<any> {
     return this.http.get(`${environment.baseUrl}/movie/${movieId}/credits?api_key=${environment.apiKey}`);
   }
+  // Get specific details about a cast/crew member [cite: 126, 127]
+ getPersonDetails(personId: number): Observable<any> {
+  return this.http.get(`${environment.baseUrl}/person/${personId}?api_key=${environment.apiKey}`);
+  }
+
+  // Get the movies this person has worked on [cite: 139, 140]
+ getPersonMovieCredits(personId: number): Observable<any> {
+  return this.http.get(`${environment.baseUrl}/person/${personId}/movie_credits?api_key=${environment.apiKey}`);
+}
 }

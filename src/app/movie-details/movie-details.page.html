@@ -40,10 +40,9 @@
   REMOVE FROM FAVOURITES
 </ion-button>
 
-<h2 style="font-size: 1.8em; margin: 20px 0; font-weight: normal; color: #000;">Cast</h2>
-
 <div *ngFor="let actor of cast | slice:0:5" 
-     style="border: 1px solid #e0e0e0; margin-bottom: 20px; border-radius: 4px; overflow: hidden; background: #fff; max-width: 320px; margin-left: 0;">
+     [routerLink]="['/details', actor.id]"
+     style="border: 1px solid #e0e0e0; margin-bottom: 20px; border-radius: 4px; overflow: hidden; background: #fff; max-width: 320px; margin-left: 0; cursor: pointer;">
   
   <img [src]="'https://image.tmdb.org/t/p/w500' + actor.profile_path" 
        style="width: 100%; display: block; object-fit: cover; height: 350px;"
@@ -62,9 +61,11 @@
     <h2 style="font-size: 1.8em; margin: 35px 0 15px 0; font-weight: normal; color: #000;">Crew</h2>
     
     <!-- Crew List (Matching the simple text style in Fig 4) -->
-    <div *ngFor="let member of crew | slice:0:10" style="margin-bottom: 18px;">
-        <h4 style="margin: 0; font-weight: bold; font-size: 0.95em; color: #333;">{{ member.name }}</h4>
-        <p style="margin: 2px 0 0 0; font-size: 0.85em; color: #666;">{{ member.job }}</p>
-    </div>
+ <div *ngFor="let member of crew | slice:0:10" 
+     [routerLink]="['/details', member.id]"
+     style="margin-bottom: 18px; cursor: pointer;">
+    <h4 style="margin: 0; font-weight: bold; font-size: 0.95em; color: #333;">{{ member.name }}</h4>
+    <p style="margin: 2px 0 0 0; font-size: 0.85em; color: #666;">{{ member.job }}</p>
+ </div>
   </div>
 </ion-content>
