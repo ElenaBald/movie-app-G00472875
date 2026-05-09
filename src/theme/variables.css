@@ -1,0 +1,19 @@
+/* Root variables for the Light theme */
+:root {
+  --ion-color-primary: #3880ff;
+  --ion-background-color: #ffffff;
+  --ion-text-color: #000000;
+}
+
+/* This is  The Dark theme palette */
+.dark {
+  --ion-background-color: #121212;
+  --ion-background-color-rgb: 18,18,18;
+
+  --ion-text-color: #ffffff;
+  --ion-text-color-rgb: 255,255,255;
+
+  --ion-toolbar-background: #1f1f1f;
+  --ion-item-background: #1e1e1e;
+  --ion-card-background: #1e1e1e;
+}

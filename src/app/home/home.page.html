@@ -3,11 +3,15 @@
     <ion-title>
       {{ studentNumber }}
     </ion-title>
-    <ion-buttons slot="end">
-      <ion-button routerLink="/favourites">
-        <ion-icon slot="icon-only" name="heart"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="toggleDarkMode()">
+           <ion-icon slot="icon-only" [name]="isDarkMode ? 'sunny' : 'moon'"></ion-icon>
+  </ion-button>
+  
+  <ion-button routerLink="/favourites">
+    <ion-icon slot="icon-only" name="heart"></ion-icon>
+  </ion-button>
+</ion-buttons>
   </ion-toolbar>
 </ion-header>
 

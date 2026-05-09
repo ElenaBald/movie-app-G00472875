@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { MovieService } from '../services/movie.service';
 import { RouterModule } from '@angular/router';
+import { MovieService } from '../services/movie.service';
+import { addIcons } from 'ionicons';
+import { heart, moon, sunny } from 'ionicons/icons'; // Icons for Favourites and Dark Mode
 
 @Component({
   selector: 'app-home',
@@ -13,9 +15,13 @@ import { RouterModule } from '@angular/router';
 })
 export class HomePage implements OnInit {
   trendingMovies: any[] = [];
-  studentNumber: string = 'G00472875';
+  studentNumber: string = 'G00472875'; // Student ID 
+  isDarkMode: boolean = false; // Innovation 
 
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService) {
+    // Register icons required for the header 
+    addIcons({ heart, moon, sunny });
+  }
 
   ngOnInit() {
     this.loadTrendingMovies();
@@ -24,24 +30,23 @@ export class HomePage implements OnInit {
   loadTrendingMovies() {
     this.movieService.getTrendingMovies().subscribe((data) => {
       this.trendingMovies = data.results;
-      console.log('Trending Movies:', this.trendingMovies);
     });
   }
 
-  // Implemented search functionality as per project requirement
   onSearch(event: any) {
     const query = event.detail.value;
-    
-    // If the search string is empty, show trending movies as per Figure 2
     if (!query || query.trim() === '') {
       this.loadTrendingMovies();
       return;
     }
-
-    // Otherwise, show movies matching the search string as per Figure 3
     this.movieService.searchMovies(query).subscribe((data) => {
       this.trendingMovies = data.results;
-      console.log('Search Results:', this.trendingMovies);
     });
+  }
+
+  // Innovation logic: Toggles the dark theme class 
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    document.body.classList.toggle('dark', this.isDarkMode);
   }
 }
