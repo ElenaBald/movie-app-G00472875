@@ -16,7 +16,7 @@ export class DetailsPage implements OnInit {
   person: any;
   movieCredits: any[] = [];
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) {
+  constructor(private route: ActivatedRoute, private movieService: MovieService){
     addIcons({ home, heart });
   }
 

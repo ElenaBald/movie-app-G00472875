@@ -1,0 +1,6 @@
+Student Name: Elena Baldaeva
+Student ID: G00472875
+Project: Mobile Applications Development Project - Movie App
+
+Public GitHub Repository URL:
+https://github.com/ElenaBald/movie-app-G00472875
